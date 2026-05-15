@@ -1,0 +1,21 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-ZA
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["cleaned_data","Keyword_Library","Model results (2)"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table cleaned_data
+ref table Keyword_Library
+ref table Buzzword_Stats_Table
+ref table 'Model results (2)'
+
+ref cultureInfo en-US
+

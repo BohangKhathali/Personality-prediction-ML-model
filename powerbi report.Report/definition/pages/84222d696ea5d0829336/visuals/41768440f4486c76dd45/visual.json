@@ -1,0 +1,296 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "41768440f4486c76dd45",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 514.58148377694772,
+    "width": 639.453257173487,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "BoxandWhiskerByMAQ1823AD39DT234AB532063E128AX",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cleaned_data"
+                    }
+                  },
+                  "Property": "personality_type"
+                }
+              },
+              "queryRef": "cleaned_data.personality_type",
+              "nativeQueryRef": "personality_type"
+            }
+          ]
+        },
+        "measure": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cleaned_data"
+                        }
+                      },
+                      "Property": "word_count"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(cleaned_data.word_count)",
+              "nativeQueryRef": "Average of word_count"
+            }
+          ]
+        },
+        "categoryGroup": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cleaned_data"
+                    }
+                  },
+                  "Property": "personality_type"
+                }
+              },
+              "queryRef": "cleaned_data.personality_type",
+              "nativeQueryRef": "personality_type",
+              "active": true
+            }
+          ]
+        },
+        "categorySize": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "cleaned_data"
+                        }
+                      },
+                      "Property": "cleaned_posts"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(cleaned_data.cleaned_posts)",
+              "nativeQueryRef": "Count of cleaned_posts"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "boxOptions": [
+        {
+          "properties": {
+            "median": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inclusive'"
+                }
+              }
+            },
+            "boxWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Large'"
+                }
+              }
+            },
+            "boxTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "whiskerColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0.4
+                    }
+                  }
+                }
+              }
+            },
+            "whiskerTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "meanConfig": [
+        {
+          "properties": {
+            "meanShape": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Triangle'"
+                }
+              }
+            },
+            "meanWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Medium'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "xAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            },
+            "labelsFontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Consolas'"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Personality type'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "yAxis": [
+        {
+          "properties": {
+            "labelsFontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Consolas'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average word count for the general  personality types'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9fa3bcd7e5388f4d7cb7",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "cleaned_data"
+                      }
+                    },
+                    "Property": "word_count"
+                  }
+                },
+                "Function": 4
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Aggregation": {
+                    "Expression": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "cleaned_data"
+                          }
+                        },
+                        "Property": "word_count"
+                      }
+                    },
+                    "Function": 4
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      }
+    ]
+  }
+}

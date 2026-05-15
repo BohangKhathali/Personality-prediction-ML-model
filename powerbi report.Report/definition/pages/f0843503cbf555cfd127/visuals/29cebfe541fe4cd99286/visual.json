@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "29cebfe541fe4cd99286",
+  "position": {
+    "x": 604.36525612472167,
+    "y": 18.530066815144767,
+    "z": 1000,
+    "height": 631.44766146993322,
+    "width": 615.76837416481067,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Keyword_Library"
+                    }
+                  },
+                  "Property": "Buzzwords"
+                }
+              },
+              "queryRef": "Keyword_Library.Buzzwords",
+              "nativeQueryRef": "Buzzwords",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Keyword_Library"
+                        }
+                      },
+                      "Property": "Total_Appearances"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Keyword_Library.Total_Appearances)",
+              "nativeQueryRef": "Sum of Total_Appearances"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Keyword_Library"
+                      }
+                    },
+                    "Property": "Total_Appearances"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total Appearance of each buzzword'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,37 @@
+table Keyword_Library
+	lineageTag: ecfaf390-4d77-4e26-bc3d-41eb983023ba
+
+	column Buzzwords
+		dataType: string
+		lineageTag: d5864daa-7d3c-4390-be56-0ffee1c013e7
+		summarizeBy: none
+		sourceColumn: Buzzwords
+
+		annotation SummarizationSetBy = Automatic
+
+	column Total_Appearances =
+			
+			VAR CurrentWord = 'Keyword_Library'[Buzzwords]
+			RETURN
+			SUMX(
+			'cleaned_data',
+			(LEN('cleaned_data'[posts]) - LEN(SUBSTITUTE(LOWER('cleaned_data'[posts]), LOWER(CurrentWord), ""))) / LEN(CurrentWord)
+			)
+		lineageTag: 68a15776-fe18-4bf1-8e82-273de5519233
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Keyword_Library = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WykgsKKhUitWBsDLzUouLwbzixBQYDRdLSS0oArJTU5B5mfl5EO2pOQUQHaWZyZkpqUjsxByl2FgA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Buzzwords = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Buzzwords", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
